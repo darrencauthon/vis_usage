@@ -123,6 +123,9 @@ var parse = function(data){
 
 var data = data[0];
 var results = parse(data);
+for(var i = 0; i < results; i++){
+    results[i].tree = undefined;
+}
 console.log(results);
 
             // create an array with nodes
