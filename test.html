@@ -119,11 +119,13 @@ var parse = function(data){
     for(var property in data)
     {
         var value = data[property];
-	console.log(value);
 
 	if (typeof(value) == 'object')
 	{
             parse(value);
+	    if (value.index != undefined){
+	        console.log(value);
+	    }
         }
 	else if (Array.isArray(value))
 	    for(var index = 0; i < value.length; i++)
