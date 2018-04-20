@@ -115,22 +115,22 @@
   }
 ];
 
-var ugh = function(data){
-    for(var property in data){
-        console.log(property);
-        console.log(typeof(data[property]));
-	if (typeof(data[property]) == 'object')
-            ugh(data[property]);
-	else if (Array.isArray(data[property]))
-	    for(var index = 0; i < data[property].length; i++)
-	    {
-	        ugh(data[property][index]);
-	    }
+var parse = function(data){
+    for(var property in data)
+    {
+        var value = data[property];
+	console.log(value);
+
+	if (typeof(value) == 'object')
+            parse(value);
+	else if (Array.isArray(value))
+	    for(var index = 0; i < value.length; i++)
+	        parse(value[index]);
     }
 };
 
 var data = data[0];
-ugh(data);
+parse(data);
 
         </script>
     </body>
