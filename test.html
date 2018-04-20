@@ -281,6 +281,16 @@ var parse = function(data){
 
 var data = data[0];
 var results = parse(data);
+for(var i = 0; i < results.length; i++)
+{
+    results[i].directChildren = [];
+    for(var j = 0; j < results[i].children.length; j++)
+    {
+        if (results[i].children[j].parent != undefined)
+	    if (results[i].children[j].parent.index == results[i].index)
+	        results[i].directChildren.push(results[i].children[j]);
+    }
+}
 console.log(results);
 
             // create an array with nodes
