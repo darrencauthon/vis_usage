@@ -127,6 +127,8 @@ var parse = function(data){
 	    value.children = [];
 	    for(var i = 0; i < theseResults.length; i++){
 	        results.push(theseResults[i]);
+		if (theseResults[i].parent == undefined)
+                    theseResults[i].parent = value;
 	        value.children.push(theseResults[i]);
 	    }
 	    if (value.index != undefined){
