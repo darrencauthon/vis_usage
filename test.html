@@ -91,9 +91,9 @@
 
 var parse = function(data){
     var results = [];
-    for(var property in data)
+    for(var key in data)
     {
-        var value = data[property];
+        var value = data[key];
 
 	if (typeof(value) == 'object')
 	{
