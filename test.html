@@ -33,6 +33,94 @@
             };
             var options = {};
             var network = new vis.Network(container, data, options);
+
+            var data = 
+[
+  {
+    "sentence": "Jack and Jill went up the hill.", 
+    "tree": {
+      "ROOT": [
+        {
+          "index": 4, 
+          "token": "went", 
+          "label": "VERB", 
+          "pos": "VBD", 
+          "tree": {
+            "nsubj": [
+              {
+                "index": 1, 
+                "token": "Jack", 
+                "label": "NOUN", 
+                "pos": "NNP", 
+                "tree": {
+                  "cc": [
+                    {
+                      "index": 2, 
+                      "token": "and", 
+                      "label": "CONJ", 
+                      "pos": "CC"
+                    }
+                  ], 
+                  "conj": [
+                    {
+                      "index": 3, 
+                      "token": "Jill", 
+                      "label": "NOUN", 
+                      "pos": "NNP"
+                    }
+                  ]
+                }
+              }
+            ], 
+            "prep": [
+              {
+                "index": 5, 
+                "token": "up", 
+                "label": "PRT", 
+                "pos": "RP", 
+                "tree": {
+                  "pobj": [
+                    {
+                      "index": 7, 
+                      "token": "hill", 
+                      "label": "NOUN", 
+                      "pos": "NN", 
+                      "tree": {
+                        "det": [
+                          {
+                            "index": 6, 
+                            "token": "the", 
+                            "label": "DET", 
+                            "pos": "DT"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ], 
+            "punct": [
+              {
+                "index": 8, 
+                "token": ".", 
+                "label": ".", 
+                "pos": "."
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+];
+
+
+var data = data[0];
+console.log(data);
+console.log(data.tree);
+console.log(Array.isArray(data.tree.ROOT));
+
         </script>
     </body>
 </html>
