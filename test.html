@@ -137,7 +137,6 @@ var parse = function(data){
 	    for(var i = 0; i < value.length; i++)
 	    {
 	        var theseResults = parse(value[index]);
-                value.children = [];
 	        for(var i = 0; i < theseResults.length; i++){
 	            results.push(theseResults[i]);
 	        }
