@@ -128,12 +128,10 @@ console.log(results);
             // create an array with nodes
             var nodes = new vis.DataSet([]);
             for(var i = 0; i < results.length; i++)
-                nodes.add({index: results[i].index, label: results[i].token});
+                nodes.add({id: results[i].index, label: results[i].token});
 
             // create an array with edges
-            var edges = new vis.DataSet([
-                //{from: 1, to: 3},
-            ]);
+            var edges = new vis.DataSet([]);
             for(var i = 0; i < results.length; i++)
 	        if (results[i].parent != undefined)
                     edges.add({from: results[i].parent.index, to: results[i].index});
