@@ -124,8 +124,10 @@ var parse = function(data){
 	if (typeof(value) == 'object')
 	{
             var theseResults = parse(value);
+	    value.children = [];
 	    for(var i = 0; i < theseResults.length; i++){
 	        results.push(theseResults[i]);
+	        value.children.push(theseResults[i]);
 	    }
 	    if (value.index != undefined){
 		results.push(value);
@@ -135,8 +137,10 @@ var parse = function(data){
 	    for(var i = 0; i < value.length; i++)
 	    {
 	        var theseResults = parse(value[index]);
+                value.children = [];
 	        for(var i = 0; i < theseResults.length; i++){
 	            results.push(theseResults[i]);
+	            value.children(theseResults[i]);
 	        }
             }
     }
