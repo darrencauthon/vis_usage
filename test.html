@@ -281,6 +281,20 @@ var parse = function(data){
 
 var data = data[0];
 var results = parse(data);
+
+
+for(var i = 0; i < results.length; i++)
+{
+    var sortedChildren = [results[i]];
+    for(var j = 0; j < results[i].children.length; j++){sortedChildren.push(results[i].children[j])};
+    sortedChildren = sortedChildren.sort(function(a, b){ return a.index - b.index });
+    results[i].phrase = '';
+    for (var j = 0; j < sortedChildren.length; j++){
+        results[i].phrase = results[i].phrase + ' ' + sortedChildren[j].token;
+    }
+    results[i].phrase = results[i].phrase.trim();
+}
+
 for(var i = 0; i < results.length; i++)
 {
     results[i].directChildren = [];
@@ -291,6 +305,7 @@ for(var i = 0; i < results.length; i++)
 	        results[i].directChildren.push(results[i].children[j]);
     }
 }
+
 console.log(results);
 
             // create an array with nodes
