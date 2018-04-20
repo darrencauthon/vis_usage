@@ -115,11 +115,22 @@
   }
 ];
 
+var ugh = function(data){
+    for(var property in data){
+        console.log(property);
+        console.log(typeof(data[property]));
+	if (typeof(data[property]) == 'object')
+            ugh(data[property]);
+	else if (Array.isArray(data[property]))
+	    for(var index = 0; i < data[property].length; i++)
+	    {
+	        ugh(data[property][index]);
+	    }
+    }
+};
 
 var data = data[0];
-console.log(data);
-console.log(data.tree);
-console.log(Array.isArray(data.tree.ROOT));
+ugh(data);
 
         </script>
     </body>
