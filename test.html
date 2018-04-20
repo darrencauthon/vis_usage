@@ -122,7 +122,9 @@ var parse = function(data){
 	console.log(value);
 
 	if (typeof(value) == 'object')
+	{
             parse(value);
+        }
 	else if (Array.isArray(value))
 	    for(var index = 0; i < value.length; i++)
 	        parse(value[index]);
