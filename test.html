@@ -116,25 +116,36 @@
 ];
 
 var parse = function(data){
+    var results = [];
     for(var property in data)
     {
         var value = data[property];
 
 	if (typeof(value) == 'object')
 	{
-            parse(value);
+            var theseResults = parse(value);
+	    for(var i = 0; i < theseResults.length; i++){
+	        results.push(theseResults[i]);
+	    }
 	    if (value.index != undefined){
-	        console.log(value);
+		results.push(value);
 	    }
         }
 	else if (Array.isArray(value))
-	    for(var index = 0; i < value.length; i++)
-	        parse(value[index]);
+	    for(var i = 0; i < value.length; i++)
+	    {
+	        var theseResults = parse(value[index]);
+	        for(var i = 0; i < theseResults.length; i++){
+	            results.push(theseResults[i]);
+	        }
+            }
     }
+    return results;
 };
 
 var data = data[0];
-parse(data);
+var results = parse(data);
+console.log(results);
 
         </script>
     </body>
